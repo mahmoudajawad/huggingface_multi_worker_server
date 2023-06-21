@@ -23,7 +23,7 @@ python backend.py
 # New shell, Working directory is this project
 source venv/bin/active
 python worker.py
-```curl -X POST -H "Content-type: application/json" -d '{"article": "Today is Wed. 21st. Jun 2023. The weather is hot. I am currently not at home, but at office. I am working on implementing multi-threading for the LLM backend", "question":"What date is it?"}' 'https://ec45-143-166-117-40.ngrok-free.app/messages'
+```
 5. Make a request to `backend`:
 ```bash
 curl -X POST -H "Content-type: application/json" -d '{"article": "Today is Wed. 21st. Jun 2023. The weather is hot. I am currently not at home, but at office. I am working on implementing multi-threading for the LLM backend", "question":"What date is it?"}' 'http://127.0.0.1:8080'
