@@ -1,0 +1,52 @@
+[project]
+name = "huggingface_multi_worker_server"
+authors = [
+    {name = "Mahmoud Abduljawad", email = "me@mahmoudajawad.com"},
+]
+description = "HuggingFace Multi-worker Server"
+requires-python = ">=3.11"
+keywords = ["huggingface", "multi-worker", "server", "api"]
+license = {text = "AGPLv3"}
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "aiohttp==3.8.4",
+  "charset-normalizer==3.1.0",
+  "requests==2.30.0",
+  "torch==2.0.1",
+  "transformers==4.30.2",
+]
+dynamic = ["version", "readme"]
+
+[project.optional-dependencies]
+dev = [
+  "black>=23.3.0",
+  "isort>=5.12.0",
+  "mypy>=1.3.0",
+  "mypy-extensions>=1.0.0",
+  "pylint>=2.17.4",
+  "pyls-isort>=0.2.2",
+  "pylsp-mypy>=0.6.6",
+  "python-lsp-black>=1.3.0",
+  "python-lsp-jsonrpc>=1.0.0",
+  "python-lsp-server>=1.7.3",
+  "types-requests>=2.30.0.0",
+  "pip>=23.1.2",
+]
+
+[tool.pylint.basic]
+# Allow shorter and longer variable names than the default.
+argument-rgx = "[a-z_][a-z0-9_]*$"
+attr-rgx = "[a-z_][a-z0-9_]*$"
+variable-rgx = "[A-Z][A-Z0-9_]*$|[a-z_][a-z0-9_]*$"
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.black]
+preview = true
