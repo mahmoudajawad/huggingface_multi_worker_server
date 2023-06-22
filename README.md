@@ -36,3 +36,4 @@ To Convert this into an MVP, following points should be tackled:
 1. Add health check to `backend`: Upon making request to `worker` instance, if `worker` instance is unreachable over period of retries, it should be removed from `backend` registered workers.
 2. Add access-control on `backend` endpoints: Endpoints of `backend` for registering and de-registering `worker` instances should be scoped-down to prevent misuse.
 3. Return inference time with requests for analytics.
+4. Containerize PoC to run with `docker-compose`.
