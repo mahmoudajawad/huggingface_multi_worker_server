@@ -1,8 +1,8 @@
 # HuggingFace Multi-worker Server
 
-Python nature brings a lot of challenges when dealing with blocking IO. HuggingFace SDK doesn't provide an out-of-box solution to having inference on models be threaded, although the lower-level structures (PyTorch and Tenserflow) provides the necessary tooling. [HF docs suggest using multi-threaded web server](https://huggingface.co/docs/transformers/main/pipeline_webserver), but my attempts didn't to apply the same snippet didn't resolve well.
+Python nature brings a lot of challenges when dealing with blocking IO. HuggingFace SDK doesn't provide an out-of-box solution to having inference on models be threaded, although the lower-level structures (PyTorch and Tensorflow) provides the necessary tooling. [HF docs suggest using multi-threaded web server](https://huggingface.co/docs/transformers/main/pipeline_webserver), but my attempts didn't to apply the same snippet didn't resolve well.
 
-As I needed an urget PoC of being able to provide multi-tenant (more than one user using using LLM capabilities at once) service. I decided to build a PoC that follows workers concept, where multiple number of [`workers`](./worker.py) can be started alongside [`backend`](./backend.py) to provide multi-tenant API for LLM inference.
+As I needed an urgent PoC of being able to provide multi-tenant (more than one user using using LLM capabilities at once) service. I decided to build a PoC that follows workers concept, where multiple number of [`workers`](./worker.py) can be started alongside [`backend`](./backend.py) to provide multi-tenant API for LLM inference.
 
 This specific demo runs `falcon-40b-instruct` model in `conversational` mode, and allows users to provide knowledge source, `article`, and ask `question` so LLM would answer it assuming its only knowledge is `article`. To use this PoC:
 1. Create a `venv`, and activate it:
